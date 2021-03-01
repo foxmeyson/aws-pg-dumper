@@ -19,20 +19,31 @@ Handles errors for all pipelines inside the bash, and **exits with an exit code 
 
 #### **Defined in Dockerfile:**
 
-$TZ (default value=Europe/Moscow)
+$TZ - timezone (default `value=Europe/Moscow`)
 
 #### **Defined in bash script:**
 
-$PG_USER
+$PG_USER - database user
 
-$PG_PASSWORD
+$PG_PASSWORD - database password
 
-$PG_HOST
+$PG_HOST - database host (you can use PgBouncer address)
 
-$PG_DBNAME
+$PG_DBNAME - database name (this will be used to coonect DB and form name dump-file)
 
-$AWS_BUCKET_NAME
+$AWS_BUCKET_NAME - name bucket in AWS (this will be used to form an address in the `aws cp` command)
 
-$AWS_HOST
+$AWS_HOST - will be used to form an key awscli `--endpoint-url=`
 
-$AWS_REGION
+$AWS_REGION - will be used to form an key awscli `--region=`
+
+> example:
+
+    $PG_DBNAME = testDB
+    $AWS_BUCKET_NAME = my/bucket/for/dump
+    $AWS_HOST = 127.0.0.1
+    $AWS_REGION = en-3z
+
+> result awscli bucket for upload:
+
+    s3://my/bucket/for/dump/dump_testDB_01-03-2021_13:20:12_232447103.gz --endpoint-url=127.0.0.1 --region=en-3z
