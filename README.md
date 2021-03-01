@@ -1,14 +1,15 @@
 # aws-pg-dumper
 
-For custom backups postgre database using:
+For backup postgreSQL database in custom format, compressing and upload to S3 bucket (not only AWS).
+Using:
 
-    pg_dump -Fc 
+    pg_dump -Fc | gzip | aws cp
 
-and uploading them to S3 bucket (not only AWS).
+Inspired by Zalando Posgres operator for Kubernetes (if you use Zalando Posgres operator, actually they use the built-in dump mechanism, but it didn't work fine for me)
 
 You can added this to the **cronjobs in Kubernetes** for dump PostgreSQL databases. 
 
-Handles errors for all pipelines inside the bash, and **exits with an exit code not equal to 0** - you can monitoring jobs in Kubernetes.
+Handles errors for all pipelines inside the bash, and **exits with an exit code not equal to 0** in case of any error - you can monitoring jobs in Kubernetes.
 
 ---
 
