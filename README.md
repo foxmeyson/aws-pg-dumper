@@ -1,6 +1,9 @@
 # aws-pg-dumper
 
 For backup postgreSQL database in custom format, compressing and upload to S3 bucket (not only AWS).
+
+Without using an intermediate file. From stdin is streaming to gzip and streaming to S3.
+
 Using:
 
     pg_dump -Fc | gzip | aws cp
