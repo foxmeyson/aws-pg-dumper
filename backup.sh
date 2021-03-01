@@ -20,6 +20,5 @@ function upload {
 set -x
 dump | compress | upload
 [[ ${PIPESTATUS[0]} != 0 || ${PIPESTATUS[1]} != 0 || ${PIPESTATUS[2]} != 0 ]] && (( ERRORCOUNT += 1 ))
-set +x
 
 exit "$ERRORCOUNT"
