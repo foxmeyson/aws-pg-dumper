@@ -12,15 +12,15 @@ Handles errors for all pipelines inside the bash, and **exits with an exit code 
 
 ---
 
-## **ENVIRONMENT VARIABLES (ENV):**
+### **Environment variables (ENV):**
 
 > You can override the following ENV
 
-### **Defined in Dockerfile:**
+#### **Defined in Dockerfile:**
 
 $TZ (default value=Europe/Moscow)
 
-### **Defined in bash script:**
+#### **Defined in bash script:**
 
 $PG_USER
 
